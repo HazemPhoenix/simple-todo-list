@@ -13,8 +13,10 @@ const App = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setTasks([...tasks, { enteredTask, id: Math.random() * 100 }]);
-    setEnteredTask("");
+    if (enteredTask) {
+      setTasks([...tasks, { enteredTask, id: Math.random() * 100 }]);
+      setEnteredTask("");
+    } else return;
   };
 
   const removeTaskHandler = (id) => {
